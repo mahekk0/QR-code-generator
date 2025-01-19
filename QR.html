@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR code generator</title>
+    <style>
+        body,html{
+            margin:0;
+            padding:0;
+            height:100%;
+        }
+        .container{
+            background-color: blue;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            height:100%;
+            flex-direction:column;
+        }
+        .input{
+            background-color:white;
+            padding:50px 100px;
+            text-align:center;
+            border:5px solid black;
+            border-radius:20px;
+        }
+        p{
+            font-size:200%;
+        }
+        input{
+            height:50px;
+            width:250px;
+            border-radius:20px;
+        }
+        button:hover{
+            background-color:white;
+            transform: scale(1.1);
+        }
+        button{
+            background-color:blue;
+            height:50px;
+            width:250px;
+            border-radius:20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="input">
+            <p>qr code generator</p>
+            <input type="text" id="inputtext" placeholder ="enter URL or text"><br><br>
+            <button onclick="generate()">generate qr</button>
+        </div>
+        <div class="qr">
+            <div class="img">
+                <img src="" id="imgqr"><br><br>
+            </div>
+        </div>
+    </div>
+    <script>
+        //string concatation
+        let inputtext = document.getElementById("inputtext");
+        let img = document.getElementById("imgqr");
+
+        function generate(){
+            imgqr.src= "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=" + inputtext.value;
+        }
+    </script>
+</body>
+</html>
